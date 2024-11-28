@@ -13,7 +13,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,7 +44,6 @@ dependencies {
     implementation(libs.annotation)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
-    implementation(libs.firebase.messaging)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -58,6 +57,11 @@ dependencies {
     implementation("com.makeramen:roundedimageview:2.3.0")
 
     //Firebase
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.firestore)
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+
+    //MultiDex
+    implementation("androidx.multidex:multidex:2.0.1")
 
 }
