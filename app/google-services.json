@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "205642640570",
+    "project_id": "dahlia-chat",
+    "storage_bucket": "dahlia-chat.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205642640570:android:cb8d90a5543000f315e683",
+        "android_client_info": {
+          "package_name": "com.example.dahlia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvcWVikq7-RK_-DezSHET1gD7Yq4U2pdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
