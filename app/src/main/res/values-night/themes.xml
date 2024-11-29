@@ -2,5 +2,8 @@
     <style name="Base.Theme.Dahlia" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textColorHint">@color/tertiary_text</item>
+        <item name="android:windowBackground">@color/primary_dark</item>
     </style>
 </resources>

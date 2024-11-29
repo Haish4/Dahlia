@@ -33,7 +33,7 @@ public class SignInActivity extends AppCompatActivity {
     private void setListener() {
         binding.textCreateNewAccount.setOnClickListener(v ->
                 startActivity(new Intent(getApplicationContext(), SignUpActivity.class)));
-        binding.buttonSignIn.setOnClickListener(v -> addDataToFirestore());
+//        binding.buttonSignIn.setOnClickListener(v -> addDataToFirestore());
     }
 
     private void addDataToFirestore(){
