@@ -44,7 +44,9 @@ public class SignUpActivity extends AppCompatActivity {
         setListener();
     }
     private void setListener() {
-        binding.textSignIn.setOnClickListener(v -> onBackPressed());
+        binding.textSignIn.setOnClickListener(v ->{
+            startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);});
         binding.buttonSignUp.setOnClickListener(v -> {
             if(isValidSignUpDetails()){
                 signUp();
@@ -76,7 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         HashMap<String, Object> user = new HashMap<>();
         user.put(Constants.KEY_NAME, binding.inputName.getText().toString());
-        user.put(Constants.KEY_EMAIL, binding.inputEmail.getText().toString());
+        user.put(Constants.KEY_EMAIL, binding.inputEmail.getText().toString().toLowerCase());
         user.put(Constants.KEY_PASSWORD, binding.inputPassword.getText().toString());
         user.put(Constants.KEY_IMAGE, encodedImage);
         database.collection(Constants.KEY_COLLECTION_USERS)
@@ -87,7 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
                     preferenceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
                     preferenceManager.putString(Constants.KEY_NAME, binding.inputName.getText().toString());
                     preferenceManager.putString(Constants.KEY_IMAGE, encodedImage);
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }).addOnFailureListener(exception -> {

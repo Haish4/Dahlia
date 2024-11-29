@@ -5,6 +5,7 @@
         <item name="android:statusBarColor">@color/primary</item>
         <item name="android:textColorHint">@color/primary_dark</item>
         <item name="android:textColor">@color/primary_text</item>
+        <item name="android:windowBackground">@drawable/background</item>
     </style>
 
     <style name="Theme.Dahlia" parent="Base.Theme.Dahlia" />
