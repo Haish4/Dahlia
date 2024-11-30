@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.profileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_25sdp">
+        <Button
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

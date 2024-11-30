@@ -45,11 +45,11 @@ public class SignInActivity extends AppCompatActivity {
     private void setListener() {
         binding.textCreateNewAccount.setOnClickListener(v ->{
                 startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);});
-    binding.buttonSignIn.setOnClickListener(v -> {
-        if (isValidSignInDetails()) {
-            signIn();
-        }
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);});
+        binding.buttonSignIn.setOnClickListener(v -> {
+            if (isValidSignInDetails()) {
+                signIn();
+            }
     });
     }
 

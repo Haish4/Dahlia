@@ -1,5 +1,6 @@
 package com.example.dahlia.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,18 +10,34 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dahlia.R;
+import com.example.dahlia.databinding.ActivityMainBinding;
+import com.example.dahlia.utilities.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ActivityMainBinding binding;
+    private PreferenceManager preferenceManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        setContentView(binding.getRoot());
+        preferenceManager = new PreferenceManager(getApplicationContext());
+        setListener();
+    }
+
+
+    private void setListener() {
+        binding.imageSignOut.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), profileActivity.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
     }
+    private void loadUserDetails() {
+
+    }
+
 }
