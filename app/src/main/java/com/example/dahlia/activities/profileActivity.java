@@ -1,6 +1,8 @@
 package com.example.dahlia.activities;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,8 @@ public class profileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
+        TextView yourTextView = findViewById(R.id.profileBio);
+        yourTextView.setMovementMethod(new ScrollingMovementMethod());
 
     }
 }

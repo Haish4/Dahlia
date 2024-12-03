@@ -8,14 +8,301 @@
     android:orientation="vertical"
     tools:context=".activities.profileActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_48sdp"
+        android:layout_height="@dimen/_40sdp"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/_25sdp">
+        android:layout_marginTop="@dimen/_28sdp">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_back"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_search"
+            android:layout_marginEnd="@dimen/_10sdp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:background="@drawable/background_image"
+            android:layout_marginStart="@dimen/_17sdp"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/_17ssp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="MUHAMMAD AMIR BIN MAT RAZI"
+                android:maxLines="2"
+                android:textSize="@dimen/_15ssp"/>
+
+
+
+
+                <TextView
+                    android:id="@+id/profileBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:scrollbars="vertical"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:text="@string/testScrollText"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="end"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_20sdp"
+        android:paddingTop="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:src="@drawable/ic_search"
+                android:layout_marginStart="@dimen/_10sdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Account"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Email address, change number"
+                    android:textColor="@color/gray"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:src="@drawable/ic_search"
+                android:layout_marginStart="@dimen/_10sdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Account"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Email address, change number"
+                    android:textColor="@color/gray"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:src="@drawable/ic_search"
+                android:layout_marginStart="@dimen/_10sdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Account"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Email address, change number"
+                    android:textColor="@color/gray"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:src="@drawable/ic_search"
+                android:layout_marginStart="@dimen/_10sdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Account"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Email address, change number"
+                    android:textColor="@color/gray"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:src="@drawable/ic_search"
+                android:layout_marginStart="@dimen/_10sdp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Account"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:text="Email address, change number"
+                    android:textColor="@color/gray"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
         <Button
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="@dimen/_48sdp"/>
+            android:id="@+id/transparentBorderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/button_border"
+            android:text="Click Me"
+            android:textColor="@color/error"
+            android:padding="10dp" />
 
     </LinearLayout>
 

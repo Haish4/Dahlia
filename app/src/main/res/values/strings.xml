@@ -18,4 +18,5 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="appName">Dahlia</string>
+    <string name="testScrollText">This is a long text that will overflow ansdcsdcsdcdscsdcsdddddddddd ssssssssssssssssss ffffffffffffffffffffffff d should be scrollable vertically when it exceeds the height.km;l;</string>
 </resources>
