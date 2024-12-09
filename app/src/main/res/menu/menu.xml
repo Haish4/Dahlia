@@ -1,11 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/chat"
-        android:title="Chat" />
+        android:icon="@drawable/ic_chat"
+        android:title=""
+        />
     <item
         android:id="@+id/map"
-        android:title="Map" />
+        android:icon="@drawable/ic_compass"
+        android:title="" />
     <item
         android:id="@+id/profile"
-        android:title="Profile" />
+        android:icon="@drawable/ic_user_profile"
+        android:title="" />
 </menu>
