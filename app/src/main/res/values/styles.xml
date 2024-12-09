@@ -4,4 +4,17 @@
         <item name="buttonStyle">@null</item>
     </style>
 
+    <style name="ShadowButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/blue_card</item>
+        <item name="cornerRadius">@dimen/_50sdp</item>
+        <item name="android:elevation">800dp</item>
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearance</item>
+    </style>
+
+    <style name="CustomShapeAppearance" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_20sdp</item>
+    </style>
+
+
 </resources>

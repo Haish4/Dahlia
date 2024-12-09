@@ -11,5 +11,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#646464</color>
+    <color name="blue_card">#E6EEFA</color>
     <color name="received_message_background">#090D16</color>
 </resources>

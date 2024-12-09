@@ -6,9 +6,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 import com.example.dahlia.R;
 import com.example.dahlia.databinding.ActivityMainBinding;
@@ -33,15 +31,31 @@ public class MainActivity extends AppCompatActivity {
         preferenceManager = new PreferenceManager(getApplicationContext());
         setListener();
         getToken();
+
     }
 
 
     private void setListener() {
         binding.imageSignOut.setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(), profileActivity.class));
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
-    }
+
+        binding.bottomNav.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.chat) {
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                return true;
+            } else if (itemId == R.id.map) {
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                return true;
+            } else if (itemId == R.id.profile) {
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                return true;
+            }
+            return false;
+        });
+        }
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();

@@ -6,28 +6,21 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
-import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.dahlia.R;
 import com.example.dahlia.databinding.ActivityProfileBinding;
 import com.example.dahlia.utilities.Constants;
 import com.example.dahlia.utilities.PreferenceManager;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 
-public class profileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     private ActivityProfileBinding binding;
     private PreferenceManager preferenceManager;
@@ -38,7 +31,7 @@ public class profileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
-        binding.profileBio.setMovementMethod(new ScrollingMovementMethod());
+        setScrolling();
         preferenceManager = new PreferenceManager(getApplicationContext());
         loadUserDetails();
         setListener();
@@ -54,6 +47,10 @@ public class profileActivity extends AppCompatActivity {
         binding.profileImage.setImageBitmap(bitmap);
     }
 
+
+    private void setScrolling(){
+        binding.profileBio.setMovementMethod(new ScrollingMovementMethod());
+    }
 
     private void setListener() {
         binding.logOutButton.setOnClickListener(v -> signOut());

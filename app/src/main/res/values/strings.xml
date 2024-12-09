@@ -19,4 +19,10 @@
     <string name="sign_up">Sign Up</string>
     <string name="appName">Dahlia</string>
     <string name="testScrollText">This is a long text that will overflow ansdcsdcsdcdscsdcsdddddddddd ssssssssssssssssss ffffffffffffffffffffffff d should be scrollable vertically when it exceeds the height.km;l;</string>
+    <string name="profile_update">Profile Update</string>
+    <string name="update_image">update image</string>
+    <string name="update">Update</string>
+    <string name="whats_new">What\'s new</string>
+    <string name="logo">logo</string>
+    <string name="new_security_alerts">New Security Alerts</string>
 </resources>
