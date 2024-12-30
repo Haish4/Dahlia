@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
-
 import com.example.dahlia.R;
 import com.example.dahlia.databinding.ActivityMainBinding;
 import com.example.dahlia.utilities.Constants;
@@ -66,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             return false;
+        });
+
+        binding.MButtonWeeklyChallanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), WeeklyChallengesActivity.class));
+            }
         });
         }
 

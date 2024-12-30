@@ -46,6 +46,7 @@
                 app:srcCompat="@drawable/logo_icon" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/MButtonWeeklyChallanges"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_90sdp"
                 android:layout_marginStart="@dimen/_25sdp"
