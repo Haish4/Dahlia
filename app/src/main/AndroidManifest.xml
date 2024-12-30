@@ -18,6 +18,9 @@
             android:name=".activities.CalendarActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.CallendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.GalleryActivity"
             android:exported="false" />
         <activity
