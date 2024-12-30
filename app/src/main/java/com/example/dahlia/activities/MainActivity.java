@@ -7,13 +7,12 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.example.dahlia.R;
 import com.example.dahlia.databinding.ActivityMainBinding;
 import com.example.dahlia.utilities.Constants;
 import com.example.dahlia.utilities.PreferenceManager;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -34,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
         setListener();
         getToken();
         setFullscreen();
+
+        MaterialButton BtnToCalendar = findViewById(R.id.MBtoCalendar);
+        BtnToCalendar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -73,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), WeeklyChallengesActivity.class));
             }
         });
+
         }
 
     private void showToast(String message) {
