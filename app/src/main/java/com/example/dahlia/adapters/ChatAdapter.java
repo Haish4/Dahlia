@@ -1,6 +1,7 @@
 package com.example.dahlia.adapters;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -80,9 +81,9 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
 
         void setData(ChatMessage chatMessage){
+            Log.d("ChatAdapter", "Binding message in SentMessageViewHolder: " + chatMessage.message);
             binding.textMessage.setText(chatMessage.message);
             binding.textDateTime.setText(chatMessage.dateTime);
-
         }
     }
     static class ReceivedMessageViewHolder extends RecyclerView.ViewHolder {

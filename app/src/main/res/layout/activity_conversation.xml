@@ -90,6 +90,17 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chatRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:scrollbars="vertical"
+                app:stackFromEnd="true"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
         </FrameLayout>
 
         <LinearLayout
@@ -105,6 +116,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <EditText
+                android:id="@+id/inputMessage"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_weight="1"
