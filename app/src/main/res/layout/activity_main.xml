@@ -188,6 +188,22 @@
                 app:cornerRadius="@dimen/_20sdp"
                 app:strokeWidth="0dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/MBtoPetition"
+                style="@style/ShadowButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:backgroundTint="@color/blue_card"
+                android:clipToOutline="true"
+                android:outlineProvider="background"
+                android:text="dahlia petition"
+                android:textColor="#673AB7"
+                app:cornerRadius="@dimen/_20sdp"
+                app:strokeWidth="0dp" />
+
 
         </LinearLayout>
 
