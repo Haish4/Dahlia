@@ -8,7 +8,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dahlia.adapters.RecentConversationsAdapter;
-import com.example.dahlia.adapters.UsersAdapter;
 import com.example.dahlia.databinding.ActivityChatBinding;
 import com.example.dahlia.listener.ConversionListener;
 import com.example.dahlia.models.ChatMessage;
@@ -18,14 +17,14 @@ import com.example.dahlia.utilities.PreferenceManager;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ChatActivity extends AppCompatActivity implements ConversionListener {
+public class ChatActivity extends BaseActivity implements ConversionListener {
 
     private ActivityChatBinding binding;
     private PreferenceManager preferenceManager;
@@ -122,5 +121,10 @@ private final EventListener<QuerySnapshot> eventListener = (value, error) -> {
     startActivity(intent);
     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 }
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 
 }
