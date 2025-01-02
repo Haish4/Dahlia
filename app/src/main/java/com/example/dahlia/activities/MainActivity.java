@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         getToken();
         setFullscreen();
 
-        MaterialButton BtnToCalendar = findViewById(R.id.MBtoCalendar);
-        BtnToCalendar.setOnClickListener(new View.OnClickListener(){
+
+        binding.MBtoCalendar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
                 startActivity(intent);
-
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
 
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), WeeklyChallengesActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
 

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginBottom="@dimen/_20sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:background="@drawable/background_conversation"
