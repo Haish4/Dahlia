@@ -36,7 +36,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PetitionActivity extends AppCompatActivity {
+public class PetitionActivity extends BaseActivity {
 
     ImageView IVUploadPhoto;
 

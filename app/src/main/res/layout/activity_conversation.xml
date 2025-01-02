@@ -61,10 +61,13 @@
                     android:paddingTop="@dimen/_10sdp"
                     android:textSize="@dimen/_15ssp"/>
                 <TextView
-                    android:id="@+id/textRole"
+                    android:id="@+id/textAvailability"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
-                    android:textColor="#C0BDBD"/>
+                    android:textColor="#A9A9A9"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_10ssp"
+                    android:gravity="center_vertical"/>
 
             </LinearLayout>
 

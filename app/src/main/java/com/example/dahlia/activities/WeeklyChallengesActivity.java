@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dahlia.databinding.ActivityWeeklychallengesBinding;
 
-public class WeeklyChallengesActivity extends AppCompatActivity {
+public class WeeklyChallengesActivity extends BaseActivity {
 
     private ActivityWeeklychallengesBinding binding;
 
