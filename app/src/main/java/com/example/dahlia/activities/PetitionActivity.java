@@ -28,7 +28,7 @@ import com.example.dahlia.R;
 
 import java.util.Calendar;
 
-public class PetitionActivity extends AppCompatActivity {
+public class PetitionActivity extends BaseActivity {
 
     ImageView IVUploadPhoto;
 

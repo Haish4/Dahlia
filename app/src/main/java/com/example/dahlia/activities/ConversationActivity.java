@@ -2,21 +2,20 @@ package com.example.dahlia.activities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
-
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dahlia.adapters.ChatAdapter;
 import com.example.dahlia.databinding.ActivityConversationBinding;
+import com.example.dahlia.listener.LastSeenCallBack;
 import com.example.dahlia.models.ChatMessage;
 import com.example.dahlia.models.User;
 import com.example.dahlia.utilities.Constants;
 import com.example.dahlia.utilities.PreferenceManager;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -26,15 +25,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
-
-public class ConversationActivity extends AppCompatActivity {
-
+public class ConversationActivity extends BaseActivity {
 
     private ActivityConversationBinding binding;
     private User receiverUser;
@@ -43,6 +40,7 @@ public class ConversationActivity extends AppCompatActivity {
     private PreferenceManager preferenceManager;
     private FirebaseFirestore database;
     private String conversionId = null;
+    private Boolean isReceiverAvailable = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +50,12 @@ public class ConversationActivity extends AppCompatActivity {
         setListener();
         loadReceiverDetails();
         init();
+        fetchReceiverAvailability(); // Fetch availability synchronously
         listenMessages();
-
+        listenAvailabilityOfReceiver(); // Listen for real-time updates
     }
 
-    private void init(){
+    private void init() {
         preferenceManager = new PreferenceManager(getApplicationContext());
         chatMessages = new ArrayList<>();
         chatAdapter = new ChatAdapter(
@@ -68,17 +67,17 @@ public class ConversationActivity extends AppCompatActivity {
         database = FirebaseFirestore.getInstance();
     }
 
-    private void sendMessage(){
+    private void sendMessage() {
         HashMap<String, Object> message = new HashMap<>();
         message.put(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID));
         message.put(Constants.KEY_RECEIVER_ID, receiverUser.id);
         message.put(Constants.KEY_MESSAGE, binding.inputMessage.getText().toString());
         message.put(Constants.KEY_TIMESTAMP, new Date());
         database.collection(Constants.KEY_COLLECTION_CHAT).add(message);
-        if(conversionId != null) {
+        if (conversionId != null) {
             updateConversion(binding.inputMessage.getText().toString());
-        }else {
-            HashMap<String, Object> conversion =new HashMap<>();
+        } else {
+            HashMap<String, Object> conversion = new HashMap<>();
             conversion.put(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID));
             conversion.put(Constants.KEY_SENDER_NAME, preferenceManager.getString(Constants.KEY_NAME));
             conversion.put(Constants.KEY_SENDER_IMAGE, preferenceManager.getString(Constants.KEY_IMAGE));
@@ -92,7 +91,88 @@ public class ConversationActivity extends AppCompatActivity {
         binding.inputMessage.setText(null);
     }
 
-    private void listenMessages(){
+    private void getLastSeen(LastSeenCallBack callback) {
+        database.collection(Constants.KEY_COLLECTION_USERS)
+                .document(receiverUser.id)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot documentSnapshot = task.getResult();
+                        if (documentSnapshot.exists()) {
+                            Timestamp lastSeenTimestamp = documentSnapshot.getTimestamp(Constants.KEY_LAST_SEEN);
+                            if (lastSeenTimestamp != null) {
+                                Date lastSeenDate = lastSeenTimestamp.toDate();
+                                SimpleDateFormat dateTimeFormat = new SimpleDateFormat("d/M/yyyy h:mma", Locale.getDefault());
+                                String formattedDateTime = dateTimeFormat.format(lastSeenDate);
+                                callback.onLastSeenReceived(formattedDateTime);
+                            } else {
+                                callback.onError("lastSeen field is null");
+                            }
+                        } else {
+                            callback.onError("Document does not exist");
+                        }
+                    } else {
+                        callback.onError("Error fetching document: " + task.getException().getMessage());
+                    }
+                });
+    }
+
+    private void fetchReceiverAvailability() {
+        database.collection(Constants.KEY_COLLECTION_USERS)
+                .document(receiverUser.id)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        DocumentSnapshot documentSnapshot = task.getResult();
+                        if (documentSnapshot.exists()) {
+                            Long availability = documentSnapshot.getLong(Constants.KEY_AVAILABILITY);
+                            if (availability != null) {
+                                isReceiverAvailable = availability == 1;
+                                updateAvailabilityUI(); // Update the UI immediately
+                            }
+                        }
+                    }
+                });
+    }
+
+    private void updateAvailabilityUI() {
+        if (isReceiverAvailable) {
+            binding.textAvailability.setText("Online");
+            binding.textAvailability.setTextColor(Color.parseColor("#008000"));
+        } else {
+            getLastSeen(new LastSeenCallBack() {
+                @Override
+                public void onLastSeenReceived(String formattedDateTime) {
+                    binding.textAvailability.setText("Last Seen: " + formattedDateTime);
+                    binding.textAvailability.setTextColor(Color.parseColor("#A9A9A9"));
+                }
+
+                @Override
+                public void onError(String errorMessage) {
+                    // Handle error if needed
+                }
+            });
+        }
+    }
+
+    private void listenAvailabilityOfReceiver() {
+        database.collection(Constants.KEY_COLLECTION_USERS)
+                .document(receiverUser.id)
+                .addSnapshotListener(ConversationActivity.this, (value, error) -> {
+                    if (error != null) {
+                        return;
+                    }
+                    if (value != null && value.exists()) {
+                        Long availability = value.getLong(Constants.KEY_AVAILABILITY);
+                        if (availability != null) {
+                            isReceiverAvailable = availability == 1;
+                            updateAvailabilityUI(); // Update the UI in real-time
+                        }
+                    }
+                });
+    }
+
+    private void listenMessages() {
         database.collection(Constants.KEY_COLLECTION_CHAT)
                 .whereEqualTo(Constants.KEY_SENDER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
                 .whereEqualTo(Constants.KEY_RECEIVER_ID, receiverUser.id)
@@ -101,16 +181,15 @@ public class ConversationActivity extends AppCompatActivity {
                 .whereEqualTo(Constants.KEY_SENDER_ID, receiverUser.id)
                 .whereEqualTo(Constants.KEY_RECEIVER_ID, preferenceManager.getString(Constants.KEY_USER_ID))
                 .addSnapshotListener(eventListener);
-
     }
 
     private final EventListener<QuerySnapshot> eventListener = (value, error) -> {
-        if(error != null){
+        if (error != null) {
             return;
         }
-        if (value != null){
+        if (value != null) {
             int count = chatMessages.size();
-            for (DocumentChange documentChange : value.getDocumentChanges()){
+            for (DocumentChange documentChange : value.getDocumentChanges()) {
                 if (documentChange.getType() == DocumentChange.Type.ADDED) {
                     ChatMessage chatMessage = new ChatMessage();
                     chatMessage.senderId = documentChange.getDocument().getString(Constants.KEY_SENDER_ID);
@@ -124,17 +203,18 @@ public class ConversationActivity extends AppCompatActivity {
             chatMessages.sort((obj1, obj2) -> obj1.dateObject.compareTo(obj2.dateObject));
             if (count == 0) {
                 chatAdapter.notifyDataSetChanged();
-            }else {
+            } else {
                 chatAdapter.notifyItemRangeInserted(chatMessages.size(), chatMessages.size());
                 binding.chatRecyclerView.smoothScrollToPosition(chatMessages.size() - 1);
             }
             binding.chatRecyclerView.setVisibility(View.VISIBLE);
         }
-        if(conversionId == null) {
+        if (conversionId == null) {
             checkForConversion();
         }
     };
-    private Bitmap getBitmapFromEncodedString(String encodedImage){
+
+    private Bitmap getBitmapFromEncodedString(String encodedImage) {
         byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
@@ -154,19 +234,14 @@ public class ConversationActivity extends AppCompatActivity {
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        finish();
-    }
+
 
     private void setListener() {
         binding.backButton.setOnClickListener(v -> onBackPressed());
         binding.layoutSend.setOnClickListener(v -> sendMessage());
     }
 
-    private String getReadableDateTime(Date date){
+    private String getReadableDateTime(Date date) {
         return new SimpleDateFormat("MMMM dd, yyyy - hh:mm a", Locale.getDefault()).format(date);
     }
 
@@ -183,8 +258,9 @@ public class ConversationActivity extends AppCompatActivity {
                 Constants.KEY_LAST_MESSAGE, message, Constants.KEY_TIMESTAMP, new Date()
         );
     }
+
     private void checkForConversion() {
-        if(chatMessages.size() != 0) {
+        if (chatMessages.size() != 0) {
             checkForConversionRemotely(
                     preferenceManager.getString(Constants.KEY_USER_ID),
                     receiverUser.id
@@ -195,6 +271,7 @@ public class ConversationActivity extends AppCompatActivity {
             );
         }
     }
+
     private void checkForConversionRemotely(String senderId, String receiverId) {
         database.collection(Constants.KEY_COLLECTION_CONVERSATIONS)
                 .whereEqualTo(Constants.KEY_SENDER_ID, senderId)
@@ -202,11 +279,17 @@ public class ConversationActivity extends AppCompatActivity {
                 .get()
                 .addOnCompleteListener(conversionOnCompleteListener);
     }
+
     private final OnCompleteListener<QuerySnapshot> conversionOnCompleteListener = task -> {
-        if (task.isSuccessful() && task.getResult() != null && task.getResult().getDocuments().size() >0) {
+        if (task.isSuccessful() && task.getResult() != null && task.getResult().getDocuments().size() > 0) {
             DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
             conversionId = documentSnapshot.getId();
         }
     };
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listenAvailabilityOfReceiver();
+    }
 }
