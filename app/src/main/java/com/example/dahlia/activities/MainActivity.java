@@ -1,8 +1,11 @@
 package com.example.dahlia.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private PreferenceManager preferenceManager;
 
+    Dialog dialog;
+    Button BtnToViewPetition, BtnToWritePetition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //PopUP message when click petition //to divide read and write petition section
+        dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.petition_popup);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.petition_popup_bg));
+        dialog.setCancelable(false);
+
+        BtnToViewPetition = dialog.findViewById(R.id.BtnToViewPetition);
+        BtnToWritePetition = dialog.findViewById(R.id.BtnToWritePetition);
+
+        BtnToViewPetition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        BtnToWritePetition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PetitionActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+
+        MaterialButton MBToPetition = findViewById(R.id.MBtoPetition);
+        MBToPetition.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                dialog.show();
+                //Intent intent = new Intent(MainActivity.this, PetitionActivity.class);
+                //startActivity(intent);
+
+            }
+        });
     }
 
 
