@@ -45,22 +45,19 @@
                 android:contentDescription="@string/logo"
                 app:srcCompat="@drawable/logo_icon" />
 
+
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/MButtonWeeklyChallanges"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_90sdp"
                 android:layout_marginStart="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                app:cornerRadius="@dimen/_20sdp"
-                style="@style/ShadowButton"
+                android:layout_marginEnd="@dimen/_25sdp"
                 android:backgroundTint="@color/blue_card"
-                android:outlineProvider="background"
                 android:clipToOutline="true"
-                app:strokeWidth="0dp"
-                />
-
-
-
+                android:outlineProvider="background"
+                app:cornerRadius="@dimen/_20sdp"
+                app:strokeWidth="0dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -161,34 +158,51 @@
 
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/MaterialButton"
+                style="@style/ShadowButton"
+
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
                 android:layout_marginStart="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                app:cornerRadius="@dimen/_20sdp"
-                style="@style/ShadowButton"
+                android:layout_marginEnd="@dimen/_25sdp"
                 android:backgroundTint="@color/blue_card"
-                android:outlineProvider="background"
                 android:clipToOutline="true"
-                app:strokeWidth="0dp"
-                />
+                android:outlineProvider="background"
+                app:cornerRadius="@dimen/_20sdp"
+                app:strokeWidth="0dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/MBtoCalendar"
+                style="@style/ShadowButton"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_90sdp"
                 android:layout_marginStart="@dimen/_25sdp"
-                android:layout_marginEnd="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                app:cornerRadius="@dimen/_20sdp"
-                style="@style/ShadowButton"
+                android:layout_marginEnd="@dimen/_25sdp"
                 android:backgroundTint="@color/blue_card"
-                android:outlineProvider="background"
                 android:clipToOutline="true"
-                app:strokeWidth="0dp"
-                />
+                android:outlineProvider="background"
+                android:text="Calendar"
+                android:textColor="#673AB7"
+                app:cornerRadius="@dimen/_20sdp"
+                app:strokeWidth="0dp" />
 
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/MBtoPetition"
+                style="@style/ShadowButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:backgroundTint="@color/blue_card"
+                android:clipToOutline="true"
+                android:outlineProvider="background"
+                android:text="dahlia petition"
+                android:textColor="#673AB7"
+                app:cornerRadius="@dimen/_20sdp"
+                app:strokeWidth="0dp" />
 
 
         </LinearLayout>

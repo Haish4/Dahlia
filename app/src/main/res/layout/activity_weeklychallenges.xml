@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
+            android:src="@drawable/ic_back"
+            android:layout_margin="@dimen/_5sdp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weekly Challenges"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="12dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="127dp"
+            android:layout_height="129dp"
+            android:src="@drawable/logo_icon"
+            android:layout_margin="@dimen/_15sdp"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="55dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginLeft="@dimen/_5sdp" >
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="@dimen/_172sdp"
+                android:layout_height="@dimen/_90sdp"
+                android:background="@drawable/background_roundedsquare"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="31dp"
+                android:text="0/10"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/view"
+                app:layout_constraintTop_toTopOf="@+id/view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="28dp"
+                android:text="completed"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintTop_toTopOf="@+id/view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:layout_marginBottom="16dp"
+                android:text="Keep up the good work!"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="@+id/view" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Challenges"
+            android:textStyle="bold"
+            android:textSize="@dimen/_14ssp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_10sdp" >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_10sdp" >
+
+                    <View
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:background="@drawable/background_roundedsquare" />
+
+                    <TextView
+                        android:layout_width="79dp"
+                        android:layout_height="54dp"
+                        android:text="Sleep more than 6 hours daily"
+                        android:textSize="@dimen/_10ssp"
+                        tools:layout_editor_absoluteX="74dp"
+                        tools:layout_editor_absoluteY="25dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp">
+
+                    <View
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:background="@drawable/background_roundedsquare" />
+
+                    <TextView
+                        android:layout_width="79dp"
+                        android:layout_height="34dp"
+                        android:text="Walk at least 20km"
+                        android:textSize="@dimen/_10ssp"
+                        tools:layout_editor_absoluteX="74dp"
+                        tools:layout_editor_absoluteY="35dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_10sdp" >
+
+                    <View
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:background="@drawable/background_roundedsquare" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
