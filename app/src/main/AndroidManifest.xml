@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,27 +15,8 @@
         android:theme="@style/Theme.Dahlia"
         tools:targetApi="31">
         <activity
-            android:name=".activities.PetitionItemDetails"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ViewPetitionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.PetitionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.CalendarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.CallendarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.GalleryActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.ConversationActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:exported="false" />
         <activity
             android:name=".activities.UserActivity"
             android:exported="false" />

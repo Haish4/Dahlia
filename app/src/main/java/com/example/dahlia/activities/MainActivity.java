@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (itemId == R.id.map) {
-                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                startActivity(new Intent(getApplicationContext(), FeedActivity.class));
                 return true;
             } else if (itemId == R.id.profile) {
                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));

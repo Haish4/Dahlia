@@ -66,5 +66,7 @@ dependencies {
     //MultiDex
     implementation("androidx.multidex:multidex:2.0.1")
 
+    implementation("com.github.bumptech.glide:glide:4.15.0")
+
 
 }
