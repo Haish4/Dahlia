@@ -58,6 +58,10 @@ public class ProfileActivity extends BaseActivity {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
+        binding.achievment.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), AchievementsActivity.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
     }
 
     private void signOut(){

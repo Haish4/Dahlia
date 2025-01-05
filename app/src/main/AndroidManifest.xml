@@ -19,6 +19,9 @@
             android:name=".activities.PetitionItemDetails"
             android:exported="false" />
         <activity
+            android:name=".activities.AchievementsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ViewPetitionActivity"
             android:exported="false" />
         <activity

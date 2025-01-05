@@ -168,9 +168,10 @@
                 android:layout_marginEnd="@dimen/_10sdp">
 
                 <TextView
+                    android:id="@+id/achievment"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_19sdp"
-                    android:text="Account"/>
+                    android:text="Achievements"/>
 
                 <TextView
                     android:layout_width="match_parent"
