@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,14 +28,22 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dahlia.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PetitionActivity extends AppCompatActivity {
 
     ImageView IVUploadPhoto;
 
     ActivityResultLauncher<Intent> resultLauncher;
+    private FirebaseFirestore db;
+
+    String typedummy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +66,7 @@ public class PetitionActivity extends AppCompatActivity {
             }
         });
 
-        TextView TVDatePetitionEnds = findViewById(R.id.TVDatePetitionEnds);
+        TextView TVDatePetitionEnds = findViewById(R.id.PetitionEndDate);
 
         TVDatePetitionEnds.setOnClickListener(v -> {
             //Get the current date
@@ -92,13 +103,13 @@ public class PetitionActivity extends AppCompatActivity {
 
         //Apply adapter to the spinner
         spinnerType.setAdapter(adapter);
-
         //Set an item selected listener
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //Handle item selection
                 String selectedType = parent.getItemAtPosition(position).toString();
+                typedummy = selectedType;
                 Toast.makeText(PetitionActivity.this, "Selected Type: " + selectedType, Toast.LENGTH_SHORT).show();
             }
 
@@ -114,6 +125,41 @@ public class PetitionActivity extends AppCompatActivity {
 
         IVUploadPhoto.setOnClickListener(view -> pickImage());
 
+        EditText PetitionTopic = findViewById(R.id.PetitionTopic);
+        EditText PetitionDetails = findViewById(R.id.PetitionDetails);
+        EditText PetitionMinSigned = findViewById(R.id.PetitionMinSigned);
+        TextView PetitionEndDate = findViewById(R.id.PetitionEndDate);
+        spinnerType = findViewById(R.id.spinnerType);
+        Button PetitionShareButton = findViewById(R.id.PetitionShareButton);
+
+        PetitionShareButton.setOnClickListener(v -> {
+            String topic = PetitionTopic.getText().toString();
+            String details = PetitionDetails.getText().toString();
+            int minSigned = Integer.parseInt(PetitionMinSigned.getText().toString());
+            String endDate = PetitionEndDate.getText().toString();
+            String type = typedummy;
+
+            db = FirebaseFirestore.getInstance();
+
+            Map<String, Object> petitionData = new HashMap<>();
+            petitionData.put("topic", topic);
+            petitionData.put("details", details);
+            petitionData.put("minSigned", minSigned);
+            petitionData.put("endDate", endDate);
+            petitionData.put("type", type);
+            petitionData.put("count",0);
+
+            //store in firestore
+            db.collection("petition")
+                    .add(petitionData)
+                    .addOnSuccessListener(documentReference -> {
+                        Toast.makeText(PetitionActivity.this, "Petition added successfully", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Log.e("Firestore", "Error adding petition", e);
+                        Toast.makeText(PetitionActivity.this, "Failed to add petition", Toast.LENGTH_SHORT).show();
+                    });
+        });
     }
 
     private void pickImage() {
