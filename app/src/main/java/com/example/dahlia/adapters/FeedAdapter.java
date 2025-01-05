@@ -1,5 +1,8 @@
 package com.example.dahlia.adapters;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.dahlia.Firebase.FeedItem;
 import com.example.dahlia.R;
+import com.example.dahlia.utilities.Constants;
 
 import java.util.List;
 
@@ -33,11 +37,10 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FeedItem feedItem = feedItems.get(position);
-        Glide.with(holder.itemView)
-                .load(feedItem.getImageUrl())
-                .into(holder.imageView);
         holder.titleText.setText(feedItem.getTitle());
         holder.feedInputText.setText(feedItem.getDescription());
+        holder.imageView.setImageBitmap(imageDecoder(feedItem.getImageUrl()));
+
     }
 
     @Override
@@ -57,4 +60,10 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
             feedInputText = itemView.findViewById(R.id.feedInputText01);
         }
     }
+
+    public Bitmap imageDecoder(String encodedImage) {
+        byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+    }
+
 }

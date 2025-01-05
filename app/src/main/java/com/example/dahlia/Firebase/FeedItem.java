@@ -14,6 +14,8 @@ public class FeedItem {
     }
 
 
+
+
     public String getImageUrl() {
         return imageUrl;
     }
