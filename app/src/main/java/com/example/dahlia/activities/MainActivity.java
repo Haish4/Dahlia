@@ -1,29 +1,32 @@
 package com.example.dahlia.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
-
 
 import com.example.dahlia.R;
 import com.example.dahlia.databinding.ActivityMainBinding;
 import com.example.dahlia.utilities.Constants;
 import com.example.dahlia.utilities.PreferenceManager;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ActivityMainBinding binding;
     private PreferenceManager preferenceManager;
 
+    Dialog dialog;
+    Button BtnToViewPetition, BtnToWritePetition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,55 @@ public class MainActivity extends AppCompatActivity {
         getToken();
         setFullscreen();
 
+
+        binding.MBtoCalendar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+
+
+        //PopUP message when click petition //to divide read and write petition section
+        dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.petition_popup);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.petition_popup_bg));
+        dialog.setCancelable(false);
+
+        BtnToViewPetition = dialog.findViewById(R.id.BtnToViewPetition);
+        BtnToWritePetition = dialog.findViewById(R.id.BtnToWritePetition);
+
+        BtnToViewPetition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ViewPetitionActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+
+        BtnToWritePetition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PetitionActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+
+        MaterialButton MBToPetition = findViewById(R.id.MBtoPetition);
+        MBToPetition.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                dialog.show();
+                //Intent intent = new Intent(MainActivity.this, PetitionActivity.class);
+                //startActivity(intent);
+
+            }
+        });
     }
 
 
@@ -58,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (itemId == R.id.map) {
+
                 startActivity(new Intent(getApplicationContext(), TrackingActivity.class));
+
                 return true;
             } else if (itemId == R.id.profile) {
                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
@@ -67,6 +121,15 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
+
+        binding.MButtonWeeklyChallanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), WeeklyChallengesActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+
         }
 
     private void showToast(String message) {

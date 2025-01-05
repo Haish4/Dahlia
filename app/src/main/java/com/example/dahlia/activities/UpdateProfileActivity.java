@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.dahlia.R;
 import com.example.dahlia.databinding.ActivityUpdateProfileBinding;
 
-public class UpdateProfileActivity extends AppCompatActivity {
+public class UpdateProfileActivity extends BaseActivity {
 
     private ActivityUpdateProfileBinding binding;
 

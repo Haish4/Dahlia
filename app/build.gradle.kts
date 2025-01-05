@@ -45,7 +45,9 @@ dependencies {
     implementation(libs.annotation)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
+    implementation("androidx.cardview:cardview:1.0.0")
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
@@ -68,5 +70,11 @@ dependencies {
     //MultiDex
     implementation("androidx.multidex:multidex:2.0.1")
 
+    implementation("com.github.bumptech.glide:glide:4.15.0")
+
+
+    //RetroFit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
 
 }

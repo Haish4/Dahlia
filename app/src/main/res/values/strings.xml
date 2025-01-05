@@ -26,4 +26,11 @@
     <string name="logo">logo</string>
     <string name="new_security_alerts">New Security Alerts</string>
     <string name="search">Search</string>
+
+
+    <string-array name="type_choices">
+        <item>Educational</item>
+        <item>Politics</item>
+        <item>Others</item>
+    </string-array>
 </resources>

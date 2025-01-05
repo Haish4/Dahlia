@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BaseActivity {
 
     private ActivityProfileBinding binding;
     private PreferenceManager preferenceManager;
@@ -56,6 +56,10 @@ public class ProfileActivity extends AppCompatActivity {
         binding.logOutButton.setOnClickListener(v -> signOut());
         binding.backButton.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
+        binding.achievment.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), AchievementsActivity.class));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
     }
