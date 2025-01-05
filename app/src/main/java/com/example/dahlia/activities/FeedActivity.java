@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.dahlia.Firebase.FeedItem;
 import com.example.dahlia.adapters.FeedAdapter;
 import com.example.dahlia.databinding.ActivityFeedBinding;
+import com.example.dahlia.utilities.Constants;
+import com.example.dahlia.utilities.PreferenceManager;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,11 +27,12 @@ public class FeedActivity extends AppCompatActivity {
     private List<FeedItem> feedItems;
     private FirebaseFirestore db;
     private ActivityFeedBinding binding;
+    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        preferenceManager = new PreferenceManager(getApplicationContext());
         // Initialize View Binding
         binding = ActivityFeedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -48,11 +51,38 @@ public class FeedActivity extends AppCompatActivity {
         setListener();
     }
 
+
     private void setListener() {
         binding.backButton3.setOnClickListener(v -> {
             finish(); // Go back to the previous activity
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
+
+        binding.addFeedButton.setOnClickListener(v -> {
+            FeedPostForm dialog = new FeedPostForm();
+            String image = preferenceManager.getString(Constants.KEY_IMAGE);
+            dialog.setListener((title, description) -> {
+                FeedItem feedItem = new FeedItem(image, title, description);
+                db.collection("feed")
+                        .add(feedItem)
+                        .addOnSuccessListener(documentReference -> {
+
+                            feedItems.add(feedItem);
+                            adapter.notifyItemInserted(feedItems.size() - 1); // Notify adapter of new item
+                            Toast.makeText(FeedActivity.this, "Post added successfully!", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(e -> {
+
+                            Toast.makeText(FeedActivity.this, "Failed to add post: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
+
+
+        });
+
+            // Show the dialog
+            dialog.show(getSupportFragmentManager(), "FeedPostForm");
+        });
+
     }
 
     private void fetchDataFromFirestore() {

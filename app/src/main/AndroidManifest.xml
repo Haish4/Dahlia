@@ -21,17 +21,10 @@
             android:name=".activities.FeedActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ConversationActivity"
-
             android:name=".activities.PetitionActivity"
             android:exported="false" />
         <activity
             android:name=".activities.CalendarActivity"
-            android:exported="false" />
-
-            android:exported="false" />
-        <activity
-            android:name=".activities.GalleryActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ConversationActivity"
