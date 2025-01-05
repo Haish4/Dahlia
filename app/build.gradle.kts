@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.firebase.database)
     testImplementation(libs.junit)
+    implementation("androidx.cardview:cardview:1.0.0")
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 

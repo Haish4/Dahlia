@@ -63,6 +63,8 @@ public class MainActivity extends BaseActivity {
         BtnToViewPetition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ViewPetitionActivity.class);
+                startActivity(intent);
                 dialog.dismiss();
             }
         });
