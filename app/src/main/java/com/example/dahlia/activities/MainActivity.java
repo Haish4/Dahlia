@@ -20,7 +20,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ActivityMainBinding binding;
     private PreferenceManager preferenceManager;
@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         getToken();
         setFullscreen();
 
-        MaterialButton BtnToCalendar = findViewById(R.id.MBtoCalendar);
-        BtnToCalendar.setOnClickListener(new View.OnClickListener(){
+
+        binding.MBtoCalendar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
                 startActivity(intent);
-
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
 
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (itemId == R.id.map) {
-                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                startActivity(new Intent(getApplicationContext(), FeedActivity.class));
                 return true;
             } else if (itemId == R.id.profile) {
                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), WeeklyChallengesActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
 

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_challenges"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -11,26 +12,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/primary"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:src="@drawable/ic_back"
-            android:layout_margin="@dimen/_5sdp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="12dp" />
+            android:padding="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Weekly Challenges"
             android:textSize="@dimen/_18ssp"
-            android:textStyle="bold"
-            android:layout_marginLeft="@dimen/_38sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            tools:layout_editor_absoluteX="106dp"
-            tools:layout_editor_absoluteY="12dp" />
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginLeft="@dimen/_28sdp"
+            android:layout_marginTop="@dimen/_5sdp" />
 
     </LinearLayout>
 
@@ -40,135 +37,147 @@
         android:orientation="horizontal" >
 
         <ImageView
-            android:layout_width="127dp"
-            android:layout_height="129dp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
             android:src="@drawable/logo_icon"
-            android:layout_margin="@dimen/_15sdp"
-            tools:layout_editor_absoluteX="37dp"
-            tools:layout_editor_absoluteY="55dp" />
-
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp" />
+        
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="227dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_18sdp"
-            android:layout_marginLeft="@dimen/_5sdp" >
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="@dimen/_172sdp"
-                android:layout_height="@dimen/_90sdp"
-                android:background="@drawable/background_roundedsquare"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:background="@drawable/background_roundedsquarev1"
+            android:layout_marginLeft="@dimen/_26sdp"
+            android:layout_marginTop="@dimen/_10sdp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="31dp"
-                android:text="0/10"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="35dp"
+                android:fontFamily="sans-serif-black"
+                android:text="0/10 completed"
                 android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/view"
-                app:layout_constraintTop_toTopOf="@+id/view" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="28dp"
-                android:text="completed"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/view"
-                app:layout_constraintTop_toTopOf="@+id/view" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="44dp"
-                android:layout_marginBottom="16dp"
-                android:text="Keep up the good work!"
-                android:textSize="@dimen/_10ssp"
-                app:layout_constraintBottom_toBottomOf="@+id/view"
-                app:layout_constraintEnd_toEndOf="@+id/view" />
-
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="27dp"
+                android:text="Keep up the good work !"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Challenges"
-            android:textStyle="bold"
-            android:textSize="@dimen/_14ssp" />
-
-    </LinearLayout>
-
-    <LinearLayout
+        android:text="Challenges"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_120sdp" />
+    
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_10sdp" >
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <ScrollView
+        android:layout_height="match_parent" >
+        
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center" >
+                
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp" >
+
+                    <TextView
+                        android:layout_width="73dp"
+                        android:layout_height="51dp"
+                        android:layout_marginTop="33dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="Sleep more than 6 hours daily"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_20sdp" >
+
+                    <TextView
+                        android:layout_width="66dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="38dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Walk at least 20km"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_horizontal">
+                android:gravity="center" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/_10sdp" >
-
-                    <View
-                        android:layout_width="@dimen/_130sdp"
-                        android:layout_height="@dimen/_80sdp"
-                        android:background="@drawable/background_roundedsquare" />
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp" >
 
                     <TextView
-                        android:layout_width="79dp"
-                        android:layout_height="54dp"
-                        android:text="Sleep more than 6 hours daily"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="Wake up at 6:00 am daily"
                         android:textSize="@dimen/_10ssp"
-                        tools:layout_editor_absoluteX="74dp"
-                        tools:layout_editor_absoluteY="25dp" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp">
-
-                    <View
-                        android:layout_width="@dimen/_130sdp"
-                        android:layout_height="@dimen/_80sdp"
-                        android:background="@drawable/background_roundedsquare" />
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_20sdp" >
 
                     <TextView
-                        android:layout_width="79dp"
-                        android:layout_height="34dp"
-                        android:text="Walk at least 20km"
+                        android:layout_width="70dp"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="Donate RM1 to charity"
                         android:textSize="@dimen/_10ssp"
-                        tools:layout_editor_absoluteX="74dp"
-                        tools:layout_editor_absoluteY="35dp" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -177,24 +186,121 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="center" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/_10sdp" >
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp" >
 
-                    <View
-                        android:layout_width="@dimen/_130sdp"
-                        android:layout_height="@dimen/_80sdp"
-                        android:background="@drawable/background_roundedsquare" />
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="Eat healthy meals"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_20sdp" >
+
+                    <TextView
+                        android:layout_width="73dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="Read a chapter of a book"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
-        </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center" >
 
-    </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp" >
+
+                    <TextView
+                        android:layout_width="77dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="Spend 1 hour daily without any screens"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:background="@drawable/background_roundedsquarev2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_20sdp" >
+
+                    <TextView
+                        android:layout_width="81dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="35dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="Drink at least 2L of water daily"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/background_roundedsquarev2">
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/ic_add"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.5" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+            
+        </LinearLayout>
+        
+    </ScrollView>
 
 </LinearLayout>

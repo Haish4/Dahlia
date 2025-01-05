@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginBottom="@dimen/_20sdp"
         android:layout_marginHorizontal="@dimen/_20sdp"
         android:background="@drawable/background_conversation"
@@ -61,10 +61,13 @@
                     android:paddingTop="@dimen/_10sdp"
                     android:textSize="@dimen/_15ssp"/>
                 <TextView
-                    android:id="@+id/textRole"
+                    android:id="@+id/textAvailability"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
-                    android:textColor="#C0BDBD"/>
+                    android:textColor="#A9A9A9"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:textSize="@dimen/_10ssp"
+                    android:gravity="center_vertical"/>
 
             </LinearLayout>
 
