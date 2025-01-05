@@ -118,10 +118,18 @@ public class MainActivity extends BaseActivity {
             return false;
         });
 
-        binding.MButtonWeeklyChallanges.setOnClickListener(new View.OnClickListener() {
+        binding.WeeklyChallengesView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), WeeklyChallengesActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+
+        binding.Story1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), StoryActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });

@@ -17,7 +17,6 @@
         android:theme="@style/Theme.Dahlia"
         tools:targetApi="31">
         <activity
-
             android:name=".activities.FeedActivity"
             android:exported="false" />
         <activity
@@ -42,6 +41,10 @@
         <activity
             android:name=".activities.ProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.WeeklyChallengesActivity" />
+        <activity
+            android:name=".activities.StoryActivity" />
         <activity
             android:name=".activities.SignUpActivity"
             android:exported="false"

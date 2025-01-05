@@ -16,7 +16,10 @@
         <item name="cornerSize">@dimen/_20sdp</item>
     </style>
 
-
+    <style name="CircularImage" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
 
 
