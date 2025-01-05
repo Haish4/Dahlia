@@ -32,6 +32,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -62,6 +63,9 @@ dependencies {
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.firestore)
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
     //MultiDex
     implementation("androidx.multidex:multidex:2.0.1")
