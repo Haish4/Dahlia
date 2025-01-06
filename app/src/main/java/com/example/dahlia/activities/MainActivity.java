@@ -112,6 +112,7 @@ public class MainActivity extends BaseActivity {
             } else if (itemId == R.id.map) {
 
                 startActivity(new Intent(getApplicationContext(), TrackingActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
                 return true;
             } else if (itemId == R.id.profile) {

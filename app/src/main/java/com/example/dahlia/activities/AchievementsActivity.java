@@ -60,7 +60,7 @@ public class AchievementsActivity extends BaseActivity implements AchievementAda
         // Set profile image and name
         binding.profileImage.setImageBitmap(decodeImage(preferenceManager.getString(Constants.KEY_IMAGE)));
         binding.textName.setText(preferenceManager.getString(Constants.KEY_NAME));
-
+binding.backButton.setOnClickListener(v -> onBackPressed());
         // Handle edge-to-edge insets
         ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -126,5 +126,16 @@ public class AchievementsActivity extends BaseActivity implements AchievementAda
     private Bitmap decodeImage(String encodedImage) {
         byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+    }
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
