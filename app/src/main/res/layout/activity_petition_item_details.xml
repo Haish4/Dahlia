@@ -107,6 +107,23 @@
             android:layout_height="wrap_content"
             android:text="Sign Petition"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/100"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            android:layout_gravity="end" />
+
+        <TextView
+            android:id="@+id/tvView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Signed"
+            android:textSize="16sp"
+            android:layout_gravity="end" />
     </LinearLayout>
 
 
