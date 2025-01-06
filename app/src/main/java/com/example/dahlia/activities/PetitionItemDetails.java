@@ -14,11 +14,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dahlia.R;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PetitionItemDetails extends AppCompatActivity {
 
-    private TextView tvPetitionTopic, tvPetitionDetails, tvMinimumSigned, tvDateEnds, tvPetitionType;
+    private TextView tvPetitionTopic, tvPetitionDetails, tvMinimumSigned, tvDateEnds, tvPetitionType, tvCount;
     private Button btnSignPetition;
+    private int currentCount;
+    private String petitionId;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +56,26 @@ public class PetitionItemDetails extends AppCompatActivity {
             }
         });
 
+        db = FirebaseFirestore.getInstance();
+
         tvPetitionTopic = findViewById(R.id.tvPetitionTopic);
         tvPetitionDetails = findViewById(R.id.tvPetitionDetails);
         tvMinimumSigned = findViewById(R.id.tvMinimumSigned);
         tvDateEnds = findViewById(R.id.tvDateEnds);
         tvPetitionType = findViewById(R.id.tvPetitionType);
+        tvCount = findViewById(R.id.tvCount);
         btnSignPetition = findViewById(R.id.btnSignPetition);
+
 
         // Get data from Intent
         Intent intent = getIntent();
         String topic = intent.getStringExtra("topic");
         String details = intent.getStringExtra("details");
         int minSigned = intent.getIntExtra("minSigned", 0);
-        String dateEnds = intent.getStringExtra("dateEnds");
+        String dateEnds = intent.getStringExtra("endDate");
         String type = intent.getStringExtra("type");
+        //petitionId = intent.getStringExtra("petitionId");
+        currentCount = intent.getIntExtra("count", 0);
 
         // Set the data to the views
         tvPetitionTopic.setText(topic);
@@ -72,6 +83,7 @@ public class PetitionItemDetails extends AppCompatActivity {
         tvMinimumSigned.setText("Minimum Signatures: " + minSigned);
         tvDateEnds.setText("Ends On: " + dateEnds);
         tvPetitionType.setText("Type: " + type);
+        tvCount.setText(currentCount + "/" +minSigned);
 
         // Handle the sign petition button
         btnSignPetition.setOnClickListener(v -> {

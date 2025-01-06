@@ -60,8 +60,9 @@ public class ViewPetitionActivity extends AppCompatActivity {
             intent.putExtra("topic", petition.getTopic());
             intent.putExtra("details", petition.getDetails());
             intent.putExtra("minSigned", petition.getMinSigned());
-            intent.putExtra("dateEnds", petition.getDateEnds());
+            intent.putExtra("endDate", petition.getDateEnds());
             intent.putExtra("type", petition.getType());
+            intent.putExtra("count", petition.getCount());
             startActivity(intent);
         });
         recyclerView.setAdapter(petitionAdapter);
@@ -84,7 +85,8 @@ public class ViewPetitionActivity extends AppCompatActivity {
                                     doc.getString("details"),
                                     doc.getLong("minSigned").intValue(),
                                     doc.getString("endDate"),
-                                    doc.getString("type")
+                                    doc.getString("type"),
+                                    doc.getLong("count").intValue()
                             );
                             petitionList.add(petition);
                         }
