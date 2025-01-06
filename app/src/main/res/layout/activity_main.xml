@@ -192,7 +192,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/new_security_alerts"
+                android:text="Feed"
                 android:textSize="@dimen/_13ssp"
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/_25sdp"
@@ -206,12 +206,14 @@
                 style="@style/ShadowButton"
 
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_25sdp"
                 android:backgroundTint="@color/blue_card"
                 android:clipToOutline="true"
+                android:text="Feed Post"
+                android:textColor="@color/primary"
                 android:outlineProvider="background"
                 app:cornerRadius="@dimen/_20sdp"
                 app:strokeWidth="0dp" />

@@ -35,6 +35,11 @@ public class MainActivity extends BaseActivity {
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
+        binding.MaterialButton.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, FeedActivity.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+        });
         setListener();
         getToken();
         setFullscreen();
