@@ -42,7 +42,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/PetitionTopic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40sp"
@@ -55,7 +55,7 @@
         android:lastBaselineToBottomHeight="30sp" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/PetitionDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40sp"
@@ -116,7 +116,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/PetitionMinSigned"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter an integer"
@@ -145,7 +145,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/TVDatePetitionEnds"
+            android:id="@+id/PetitionEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Pick Date End"
@@ -186,7 +186,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/PetitionShareButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40sp"

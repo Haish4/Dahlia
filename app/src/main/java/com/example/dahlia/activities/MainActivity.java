@@ -63,6 +63,8 @@ public class MainActivity extends BaseActivity {
         BtnToViewPetition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ViewPetitionActivity.class);
+                startActivity(intent);
                 dialog.dismiss();
             }
         });
@@ -108,7 +110,10 @@ public class MainActivity extends BaseActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (itemId == R.id.map) {
-                startActivity(new Intent(getApplicationContext(), FeedActivity.class));
+
+                startActivity(new Intent(getApplicationContext(), TrackingActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
                 return true;
             } else if (itemId == R.id.profile) {
                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));

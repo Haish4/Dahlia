@@ -32,6 +32,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -46,6 +47,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.firebase.database)
     testImplementation(libs.junit)
+    implementation("androidx.cardview:cardview:1.0.0")
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
@@ -62,11 +64,21 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
 
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
     //MultiDex
     implementation("androidx.multidex:multidex:2.0.1")
 
     implementation("com.github.bumptech.glide:glide:4.15.0")
 
+    implementation (libs.play.services.maps)
+    implementation (libs.play.services.location)
+
+    implementation (libs.room.runtime)
+    annotationProcessor (libs.room.compiler)
+
+    implementation ("com.google.code.gson:gson:2.10.1")
 
     //RetroFit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
