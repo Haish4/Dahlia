@@ -88,6 +88,8 @@ public class PetitionItemDetails extends AppCompatActivity {
         // Handle the sign petition button
         btnSignPetition.setOnClickListener(v -> {
             // Handle petition signing here (e.g., save to Firestore)
+            currentCount++;
+            tvCount.setText(currentCount + "/" +minSigned);
             Toast.makeText(this, "Petition Signed!", Toast.LENGTH_SHORT).show();
         });
     }
