@@ -82,6 +82,7 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
         preferenceManager = new PreferenceManager(getApplicationContext());
         userId = preferenceManager.getString(Constants.KEY_USER_ID);
 
+
         // Check if userId is null
         if (userId == null) {
             Log.e("TrackingActivity", "User ID is null. Redirecting to login screen.");
@@ -260,6 +261,8 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     private void fetchPeopleData() {
+        binding.peopleButton.setBackgroundResource(R.drawable.background_lblue);
+        binding.incidentsButton.setBackgroundResource(R.drawable.background_grey);
         peopleTrackingList.clear(); // Clear previous data
         db.collection("people")
                 .get()
@@ -278,6 +281,8 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     private void fetchIncidentsData() {
+        binding.peopleButton.setBackgroundResource(R.drawable.background_grey);
+        binding.incidentsButton.setBackgroundResource(R.drawable.background_lblue);
         incidentsTrackingList.clear(); // Clear previous data
         db.collection("incidents")
                 .get()

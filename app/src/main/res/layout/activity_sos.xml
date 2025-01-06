@@ -59,11 +59,21 @@
             android:textColor="#FFFFFF"
             android:textSize="@dimen/_50ssp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white"
+        android:text="EMERGENCY SMS SENT TO THIS CONTACT"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/TrackingRecyclerView"
         android:layout_width="410dp"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:padding="@dimen/_10sdp"
         android:background="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
