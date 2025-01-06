@@ -13,6 +13,7 @@
         android:orientation="horizontal" >
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backButton"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:src="@drawable/ic_back"
@@ -280,6 +281,7 @@
                 android:gravity="center" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ViewAddChallenge"
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_90sdp"
                     android:layout_marginTop="@dimen/_10sdp"

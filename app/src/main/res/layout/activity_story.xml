@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backButton"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_back"
+                android:padding="@dimen/_4sdp"
+                android:layout_marginRight="@dimen/_140sdp"
+                android:layout_marginTop="@dimen/_5sdp"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/messi"
+                app:shapeAppearanceOverlay="@style/CircularImage"
+                app:strokeWidth="@dimen/_2sdp"
+                app:strokeColor="@color/black"
+                android:padding="@dimen/_2sdp"/>
+
+            <TextView
+                android:id="@+id/TVName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TVProfession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profession"
+                android:textSize="@dimen/_10ssp" />
+
+            <View
+                android:layout_width="@dimen/_300sdp"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/black"
+                android:layout_marginTop="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Story"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/TVStoryDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Story ..." />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

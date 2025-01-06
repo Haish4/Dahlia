@@ -26,11 +26,9 @@
         <activity
             android:name=".activities.WeeklyChallengesActivity"
                   android:exported="false" />
-<activity
+        <activity
             android:name=".activities.SosActivity"
             android:exported="false" />
-
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBpR-DHN0UskkvRk3dp5LFgqYBCrOB0X38" />
@@ -73,6 +71,10 @@
         <activity
             android:name=".activities.ProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.WeeklyChallengesActivity" />
+        <activity
+            android:name=".activities.StoryActivity" />
         <activity
             android:name=".activities.SignUpActivity"
             android:exported="false"
