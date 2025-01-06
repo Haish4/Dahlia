@@ -5,16 +5,18 @@ import java.io.Serializable;
 public class Petition {
     private String topic;
     private String details;
-    private int minSigned;
+    private int minSigned, count;
     private String dateEnds;
     private String type;
 
-    public Petition(String topic, String details, int minSigned, String dateEnds, String type) {
+    public Petition(String topic, String details, int minSigned, String dateEnds, String type, int count
+    ) {
         this.topic = topic;
         this.details = details;
         this.minSigned = minSigned;
         this.dateEnds = dateEnds;
         this.type = type;
+        this.count = count;
     }
 
     public Petition(String topic, String type) {
@@ -41,5 +43,7 @@ public class Petition {
     public String getType() {
         return type;
     }
+
+    public int getCount() { return count; }
 }
 
