@@ -72,6 +72,12 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:4.15.0")
 
+    implementation (libs.play.services.maps)
+    implementation (libs.play.services.location)
+
+    implementation (libs.room.runtime)
+    annotationProcessor (libs.room.compiler)
+
 
     //RetroFit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

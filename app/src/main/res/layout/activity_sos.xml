@@ -36,46 +36,28 @@
             android:fontFamily="@font/poppins_bold"
             android:textSize="@dimen/_20ssp" />
     </LinearLayout>
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="412dp"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0">
-
-        <ImageButton
-            android:id="@+id/peopleButton"
-            android:layout_width="21dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_user" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SENDING ALERT!!!"
+            android:textAlignment="center"
+            android:textSize="@dimen/_15ssp"
+            android:fontFamily="@font/poppins_bold"
+            />
 
         <Button
             android:id="@+id/sosButton"
-            android:layout_width="78dp"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_180sdp"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
+            android:backgroundTint="#FF0505"
             android:fontFamily="@font/poppins_bold"
-            android:text="SOS"
-            android:textColor="#FF0505"
-            android:textSize="20sp" />
-
-        <ImageButton
-            android:id="@+id/incidentsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_warning" />
-
-    </LinearLayout>
+            android:text="STOP"
+            android:layout_marginVertical="50dp"
+            android:paddingTop="15dp"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_50ssp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/TrackingRecyclerView"
