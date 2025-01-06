@@ -26,4 +26,5 @@ public class Constants {
     public static final String KEY_AVAILABILITY = "availability";
     public static final String KEY_LAST_SEEN = "lastSeen";
     public static final String KEY_COLLECTION_ACHIEVEMENT = "achievement";
+    public static final String KEY_EMERGENCY_CONTACT = "contact";
 }

@@ -78,6 +78,7 @@ dependencies {
     implementation (libs.room.runtime)
     annotationProcessor (libs.room.compiler)
 
+    implementation ("com.google.code.gson:gson:2.10.1")
 
     //RetroFit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
