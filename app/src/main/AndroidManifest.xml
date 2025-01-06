@@ -71,8 +71,7 @@
         <activity
             android:name=".activities.ProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".activities.WeeklyChallengesActivity" />
+
         <activity
             android:name=".activities.StoryActivity" />
         <activity
